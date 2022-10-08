@@ -3,14 +3,18 @@ package com.example.joseantoniovaliente.ejercicio1
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.joseantoniovaliente.ejercicio1.databinding.ViewPersonItemBinding
 
-class PersonAdapter(private val person: List<Person>) : RecyclerView.Adapter<PersonAdapter.ViewHolder>() {
+class PersonAdapter(private val person: List<Person>, param: (Any) -> Unit) : RecyclerView.Adapter<PersonAdapter.ViewHolder>() {
 
 
     class ViewHolder(private val binding: ViewPersonItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(person: Person){
             binding.name.text = person.name
+            binding.telfn.text = person.phone
+            binding.mail.text = person.mail
+            Glide.with(binding.root.context).load(person.image).into(binding.imagePerson)
         }
     }
 
@@ -21,6 +25,7 @@ class PersonAdapter(private val person: List<Person>) : RecyclerView.Adapter<Per
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(person[position])
+        holder.itemView
     }
 
     override fun getItemCount(): Int {
