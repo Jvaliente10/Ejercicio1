@@ -6,12 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.joseantoniovaliente.ejercicio1.databinding.ViewPersonItemBinding
 
-interface PersonClickedListener {
-    fun onPersonClicked(person:Person)
-    
-}
 
-class PersonAdapter(private val person: List<Person>, private val personClicked:PersonClickedListener, param: (Person) -> Unit) : RecyclerView.Adapter<PersonAdapter.ViewHolder>() {
+
+class PersonAdapter(private val person: List<Person>,
+                    val param: (Person) -> Unit) : RecyclerView.Adapter<PersonAdapter.ViewHolder>() {
 
 
     class ViewHolder(private val binding: ViewPersonItemBinding): RecyclerView.ViewHolder(binding.root){
@@ -29,9 +27,11 @@ class PersonAdapter(private val person: List<Person>, private val personClicked:
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val person1 = person[position]
-        holder.bind(person1)
-        holder.itemView.setOnClickListener{ personClicked.onPersonClicked(person1) }
+
+        holder.bind(person[position])
+        holder.itemView.setOnClickListener {
+            param(person[position])
+        }
     }
 
     override fun getItemCount(): Int {
