@@ -11,7 +11,8 @@ interface PersonClickedListener {
     
 }
 
-class PersonAdapter(private val person: List<Person>, private val personClicked:PersonClickedListener, param: (Person) -> Unit) : RecyclerView.Adapter<PersonAdapter.ViewHolder>() {
+class PersonAdapter(private val person: List<Person>, private val personClicked:PersonClickedListener,
+                    param: (Person) -> Unit) : RecyclerView.Adapter<PersonAdapter.ViewHolder>() {
 
 
     class ViewHolder(private val binding: ViewPersonItemBinding): RecyclerView.ViewHolder(binding.root){
