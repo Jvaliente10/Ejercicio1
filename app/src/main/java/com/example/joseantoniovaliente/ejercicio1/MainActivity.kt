@@ -12,16 +12,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater).apply {
             setContentView(root)
-            recycler.adapter=PersonAdapter(persons){
+            recycler.adapter=PersonAdapter(persons) {
                     person->
                 val intent = Intent(this@MainActivity,DetailActivity::class.java)
                 intent.putExtra(DetailActivity.EXTRA_PERSON,person)
                 startActivity(intent)
-
             }
         }
     }
-
     private val persons =
         listOf(
             Person("Jose","jose123@gmail.com","689741554", "https://loremflickr.com/320/240/young,boy"),
