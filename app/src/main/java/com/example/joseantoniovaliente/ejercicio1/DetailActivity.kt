@@ -1,7 +1,9 @@
 package com.example.joseantoniovaliente.ejercicio1
 
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.content.Intent
 import com.bumptech.glide.Glide
 import com.example.joseantoniovaliente.ejercicio1.databinding.ActivityDetailBinding
 
