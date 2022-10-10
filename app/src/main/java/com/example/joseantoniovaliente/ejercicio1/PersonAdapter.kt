@@ -2,6 +2,7 @@ package com.example.joseantoniovaliente.ejercicio1
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.joseantoniovaliente.ejercicio1.databinding.ViewPersonItemBinding
@@ -33,5 +34,9 @@ class PersonAdapter(private val person: List<Person>, val param: (Person) -> Uni
 
     override fun getItemCount(): Int {
         return person.size
+    }
+
+    fun ImageView.glide(url: String) {
+        Glide.with(this).load(url).into(this)
     }
 }
