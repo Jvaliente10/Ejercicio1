@@ -6,11 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.joseantoniovaliente.ejercicio1.databinding.ViewPersonItemBinding
 
-interface PersonClickedListener {
-    fun onPersonClicked(person:Person)
-    
-}
-
 class PersonAdapter(private val person: List<Person>, val param: (Person) -> Unit) : RecyclerView.Adapter<PersonAdapter.ViewHolder>() {
 
 
