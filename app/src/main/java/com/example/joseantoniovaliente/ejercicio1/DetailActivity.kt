@@ -24,15 +24,20 @@ class DetailActivity : AppCompatActivity() {
                 binding.personName.text = person.name
                 Glide.with(binding.personImage)
                     .load(person.image).into(binding.personImage)
-                call.setOnClickListener {
+                message.setOnClickListener {
                     val intent = Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:${person.mail}"))
-                    if (intent.resolveActivity(packageManager) != null) {
-                        startActivity(intent)
-                    }
+                    intent.putExtra("subjet", "my subjet")
+                    intent.putExtra("body", "my message")
+
+                    startActivity(intent)
+
 
                 }
-                message.setOnClickListener {
 
+                call.setOnClickListener {
+                    val intent = Intent(Intent.ACTION_SENDTO, Uri.parse("tel:${person.phone}"))
+                    startActivity(intent)
+                    val intent = Intent(Intent.ACTION_DIAL)
                 }
             }
         }
