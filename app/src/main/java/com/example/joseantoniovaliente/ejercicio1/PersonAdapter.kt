@@ -3,9 +3,7 @@ package com.example.joseantoniovaliente.ejercicio1
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.joseantoniovaliente.ejercicio1.databinding.ViewPersonItemBinding
-
 
 
 class PersonAdapter(private val person: List<Person>,
@@ -17,7 +15,7 @@ class PersonAdapter(private val person: List<Person>,
             binding.name.text = person.name
             binding.telfn.text = person.phone
             binding.mail.text = person.mail
-            Glide.with(binding.root.context).load(person.image).into(binding.imagePerson)
+            binding.imagePerson.glide(person.image)
         }
     }
 
